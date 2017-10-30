@@ -1,13 +1,27 @@
 package students;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map.Entry;
-import java.util.Random;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.gson.Gson;
 
-import graduateAttributes.*;
+import graduateAttributes.Attribute;
+import graduateAttributes.CS;
+import graduateAttributes.DE;
+import graduateAttributes.EE;
+import graduateAttributes.EP;
+import graduateAttributes.ET;
+import graduateAttributes.IE;
+import graduateAttributes.IN;
+import graduateAttributes.IT;
+import graduateAttributes.KB;
+import graduateAttributes.LL;
+import graduateAttributes.PA;
+import graduateAttributes.PR;
 
 public class Student {
 	
@@ -15,8 +29,10 @@ public class Student {
 	private String lastName, firstName;
 	private String major;
 	
-	private HashMap<String, Attribute> attributes = Maps.newHashMap(); //Key: Attribute class name; Value: Attribute object
+	private transient HashMap<String, Attribute> attributes = Maps.newHashMap(); //Key: Attribute class name; Value: Attribute object
 	//Random rand = new Random();
+	@SuppressWarnings("unused")
+	private List<Attribute> attributeList = Lists.newArrayList();
 	
 	public Student(int sId, String lastName, String firstName, String major){
 		this.sId = sId;
@@ -35,6 +51,7 @@ public class Student {
 		attributes.put(IN.class.getSimpleName(), new IN());
 		attributes.put(LL.class.getSimpleName(), new LL());
 		attributes.put(PR.class.getSimpleName(), new PR());	
+		attributeList = new ArrayList<Attribute>(attributes.values());
 	}
 
 

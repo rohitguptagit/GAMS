@@ -1,5 +1,6 @@
 package stats;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.google.common.collect.Maps;
@@ -8,7 +9,8 @@ public class Range {
 
 	//performance descriptors/distribution
 	enum PERF { 
-		BELOW_EXPECTATIONS("Below Expectations"), MARGINAL("Marginal"), MEETS_EXPECTATIONS("Meets Expectations"), EXCEEDS_EXPECTATIONS("Exceeds Expectations");
+		BELOW_EXPECTATIONS("Below Expectations"), MARGINAL("Marginal"), 
+		MEETS_EXPECTATIONS("Meets Expectations"), EXCEEDS_EXPECTATIONS("Exceeds Expectations");
 		
 		private String name;
 		
@@ -21,7 +23,8 @@ public class Range {
 		}
 	}
 	
-	public HashMap<String, HashMap<PERF, Integer>> perfDist = Maps.newHashMap();
+	public ArrayList<PerfObject> inds = new ArrayList<>();
+	public ArrayList<PerfObject> atts = new ArrayList<>();
 	
 	public HashMap<PERF, Integer> genBuckets(){
 		HashMap<PERF, Integer> buckets = Maps.newHashMap();
@@ -46,14 +49,14 @@ public class Range {
 		}
 	}
 	
-	public int getTotalStudents(){
+	/*public int getTotalStudents(){
 		int total = 0;
-		for(String key : this.perfDist.keySet()){
-			for(PERF perf : this.perfDist.get(key).keySet()){
-				total += this.perfDist.get(key).get(perf).intValue();
+		for(PerfObject perfObject : this.perfDist){
+			for(PERF perf : perfObject.getInds().keySet()){
+				total += perfObject.getInds().get(perf).intValue();
 			}
 			return total;
 		}
 		return total;
-	}
+	}*/
 }

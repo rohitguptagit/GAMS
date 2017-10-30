@@ -1,16 +1,15 @@
 package graduateAttributes;
 
 import java.text.DecimalFormat;
-import java.util.HashMap;
+import java.util.ArrayList;
 
-import com.google.common.collect.Maps;
-import com.google.gson.Gson;
+import com.google.common.collect.Lists;
 
 public abstract class Attribute {
 	
 	private double numerator, denominator, result;
 	private String performance; //indicates performance measure relative to enum values in Range class
-	public HashMap<String, Indicator> indicatorScores = Maps.newHashMap(); //Key: Indicator name (CS.3); Value: Final value (what the student obtained) for that indicator
+	public ArrayList<Indicator> indicatorScores = Lists.newArrayList(); //(what the student obtained) for that indicator
 	
 	public Attribute(){
 	}
@@ -22,6 +21,7 @@ public abstract class Attribute {
 	}
 
 	public abstract String getName();
+	public abstract String getShortName();
 
 	public double getNumerator() {
 		return numerator;

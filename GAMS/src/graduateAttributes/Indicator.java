@@ -1,6 +1,7 @@
 package graduateAttributes;
 
 import java.text.DecimalFormat;
+import java.util.Objects;
 
 public class Indicator {
 
@@ -50,6 +51,20 @@ public class Indicator {
 
 	public void setResult(double result) {
 		this.result = result;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.name);
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(o == this) return true;
+		if(!(o instanceof Indicator)) return false;
+		
+		Indicator ind = (Indicator) o;
+		return ind.getName().equals(this.getName());
 	}
 
 	@Override

@@ -2,11 +2,17 @@ package graduateAttributes;
 
 public class IE extends Attribute {
 	
-	String name = "Impact of Engineering on Society and the Environment";
+	private final String name = "Impact of Engineering on Society and the Environment";
+	private final String shortName = "IE"; 
 	
 	@Override
 	public String getName() {
 		return this.name;
+	}
+	
+	@Override
+	public String getShortName() {
+		return this.shortName;
 	}
 	
 }
